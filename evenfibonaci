@@ -1,0 +1,23 @@
+package com.example;
+
+public class Evenfibonacisum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n=4000000,i=1,j=2,sum=0,evensum=0;
+		while((i+j)<n)
+		{
+			sum=i+j;
+			i=j;
+			j=sum;
+			if(sum%2==0)
+			{
+				evensum=evensum+sum;
+			}
+			
+		}
+		System.out.println(evensum);
+
+	}
+
+}
