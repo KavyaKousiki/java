@@ -1,0 +1,26 @@
+public class Largestprimefactor
+{
+	public static void main(String[] args)
+	{
+		long newNum = 600851475143L;
+		long largestFact = 0;
+
+		int c = 2;
+		while( c * c <= newNum )
+		{
+		if(newNum % c == 0)
+		{
+		    newNum = newNum / c;
+		    largestFact = c;
+		}
+		else{
+		c++;
+		}
+		}
+		if(newNum > largestFact)
+		{
+		largestFact=newNum;
+		}
+		System.out.println(largestFact);
+		}
+	}
