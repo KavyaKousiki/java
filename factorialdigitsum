@@ -1,0 +1,32 @@
+package com.example;
+
+public class factorialdigitsum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n=5,sum=0;
+		int result=factorial(n);
+		while(result!=0)
+		{
+			int r=result%10;
+			sum=sum+r;
+			result=result/10;
+		}
+		System.out.println(sum);
+		
+
+	}
+	public static int factorial(int k)
+	{
+		int fact=1;
+		if(k==0)
+		{
+			return fact;
+		}
+		else
+		{
+			return k*factorial(k-1);
+		}
+	}
+
+}
