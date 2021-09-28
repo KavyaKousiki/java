@@ -1,0 +1,15 @@
+public class Sumdifference {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n=100;// first 100 natural numbers
+		int a=((n*(n+1)*((2*n)+1)))/6;
+		int b=(n*(n+1))/2;
+		int c=b*b;
+		int d=c-a;
+		System.out.println(d);
+		
+
+	}
+
+}
