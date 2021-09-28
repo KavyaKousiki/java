@@ -1,0 +1,35 @@
+public class Largestpalindrome {
+	public static int reverse(int n)
+	{
+		int sum=0;
+		while(n!=0)
+		{
+			int r=n%10;
+			sum=sum*10+r;
+			n=n/10;
+		}
+		return sum;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int i,j,p,l=0;
+		for(i=100;i<1000;i++)
+		{
+			for(j=100;j<1000;j++)
+			{
+				p=i*j;
+				int r=reverse(p);
+				if(p==r)
+				{
+					l=p;
+				}
+					
+			}
+		}
+		System.out.println(l);
+		
+
+	}
+
+}
