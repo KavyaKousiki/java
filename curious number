@@ -1,0 +1,44 @@
+public class Curiousnumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int sum=0;
+		for(int i=3;i<10000000;i++)
+		{
+			if(i==factorial(i))
+			{
+				sum=sum+i;
+			}
+		}
+			System.out.println(sum);
+		
+	}
+		public static int factorial(int n)
+		{
+			int s=0;
+			while(n!=0)
+			{
+				int r=n%10;
+				s=s+fact(r);
+				n=n/10;
+				
+			}
+			return s;
+		}
+		public static int fact(int k)
+		{
+			int fact=1;
+			if(k==0)
+			{
+				return fact;
+      				
+			}
+			else
+			{
+				return k*fact(k-1);
+			}
+		}
+
+	}
+
+
