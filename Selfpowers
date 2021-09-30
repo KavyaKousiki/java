@@ -1,0 +1,17 @@
+import java.math.*;
+  public class example
+  {
+	  public static void main(String[] args)
+	  {
+		  double k=0;
+		for(int i=1;i<=1000;i++)
+		{
+			double s=Math.pow(i,i);
+			k=k+s;
+		}
+		Long a=(long)k;
+		String d=String.valueOf(a);
+		int l=d.length();
+		System.out.println(d.substring(l-10,l));
+	  }
+  }
