@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Example {
+	public List storeEvenNumber(int n) {
+		List k=new ArrayList();
+		for(int i=2;i<=n;i++) {
+			if(i%2==0)
+			{
+			   k.add(i);
+		}
+		}
+		return k;
+	}
+	public List printEvenNumber(List k) {
+		List a=new ArrayList();
+		for(int j=0;j<k.size();j++)
+		{
+			int p=(int) k.get(j);
+			int q=p*2;
+			a.add(q);
+		}
+		return a;
+	}
+	public void retrieveEvenNumber(int f,List k)
+	{
+		if(k.contains(f))
+		{
+			System.out.println(f);
+		}
+		else
+		{
+			System.out.println("Zero");
+		}
+			
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Example m=new Example();
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the number of elements");
+		int h=s.nextInt();
+		List y=m.storeEvenNumber(h);
+		System.out.println(y);
+		System.out.println(m.printEvenNumber(y));
+		System.out.println("Enter the element to search");
+		int g=s.nextInt();
+		m.retrieveEvenNumber(g,y);
+		
+
+	}
+
+}
