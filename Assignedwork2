@@ -1,0 +1,39 @@
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Example2 {
+	String Country;
+	private Set s;
+	public Set storeCountryNames(String CountryName)
+	{
+		Set s=new HashSet();
+		s.add(CountryName);
+		return s;
+	}
+	public void retrieveCountry(String CountryName, Set s)
+	{
+		if(s.contains(CountryName))
+		{
+			System.out.println(CountryName);
+		}
+		else
+		{
+			System.out.println("null");
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner k=new Scanner(System.in);
+		System.out.println("Enter the country name");
+		String Country=k.next();
+		Example2 e=new Example2();
+		Set j=e.storeCountryNames(Country);
+		System.out.println(e.storeCountryNames(Country));
+		System.out.println("Enter the country name to search");
+		String l=k.next();
+		e.retrieveCountry(l,j);
+	}
+
+}
