@@ -1,0 +1,63 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Example3 {
+	String CountryMap;
+	public Map<String,String>storeCountryCapital()
+	{
+		Map<String,String> M1=new HashMap<String,String>();
+		M1.put("India","Delhi");
+		M1.put("Japan","Tokyo");
+		return M1;
+	}
+	public void retrieveCapital(String CountryName,Map<String,String>M1)
+	{
+		Set<String>keys=M1.keySet();
+		Iterator<String>it=keys.iterator();
+		while(it.hasNext())
+		{
+			String Country=it.next();
+			if(Country.equals(CountryName))
+			{
+				String capital=M1.get(Country);
+				System.out.println(capital);
+			}
+		}
+	}
+	public void retrieveCountry(String CapitalName,Map<String,String>M1)
+	{
+		Set<String>keys=M1.keySet();
+		Iterator<String>it=keys.iterator();
+		while(it.hasNext())
+		{
+			String Country=it.next();
+			String capital=M1.get(Country);
+			if(capital.equals(CapitalName))
+			{
+				System.out.println(Country);
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Example3 k=new Example3();
+		Scanner sc=new Scanner(System.in);
+		Map<String,String>s=k.storeCountryCapital();
+		System.out.println(s);
+	    System.out.println("Enter the country name:");
+	    String l=sc.next();
+		k.retrieveCapital(l,s);
+		System.out.println("Enter the capital name:");
+		String o=sc.next();
+		k.retrieveCountry(o, s);
+	
+			
+		
+
+	}
+
+}
