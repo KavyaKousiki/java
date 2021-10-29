@@ -1,0 +1,155 @@
+Main code:
+import java.util.*;
+import java.time.*;
+
+
+public class Booklibrary {
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("Select type:\n1.choose book\n2.return book");
+		Scanner k=new Scanner(System.in);
+		int n=k.nextInt();
+		List<String> l=new ArrayList<String>();
+    	l.add("Lord Of the Flies by William Golding");
+    	l.add("The Walking Dead by Robert Kirkman");
+    	l.add("Animal Encyclopedia");
+    	l.add("Forbes India Magazine");
+    	l.add("Wings Of Fires by Abdul Kalam");
+		if(n==1)
+		{
+			System.out.println("The books available are:");
+			System.out.println("----------------------");
+			for(String s:l) {
+				System.out.println(s);
+			}
+			System.out.println("----------------------");
+			System.out.println("Please choose the book");
+			String b=k.nextLine();
+			b+=k.nextLine();
+			if(l.contains(b))
+			{
+				System.out.println("Book is Available");
+                System.out.println("Please Enter your details");
+                System.out.println("Enter the name:");
+                String name=k.nextLine();
+                System.out.println("Enter the email:");
+                String email=k.nextLine();
+                System.out.println("Enter the phone number:");
+                String num=k.nextLine();
+                User u=new User(name,email,num);
+                Bill bi=new Bill();
+                System.out.println("USER DETAILS");
+                System.out.println("----------------------");
+                u.display();
+                System.out.println("HERE IS YOUR BILL DETAILS & DATE OF ISSUE");
+                System.out.println("----------------------");
+                bi.display();
+			}
+			else
+			{
+				System.out.println("Sorry!!!We dont have that book");
+			}
+			
+		}
+		else if(n==2)
+		{
+			System.out.println("can u please enter your name?");
+			String str=k.nextLine();
+			str+=k.nextLine();
+				System.out.println("what is your date of issue of this book?(yyyy mm dd)");
+				LocalDate first_date=LocalDate.of(k.nextInt(), k.nextInt(), k.nextInt());
+				System.out.println("Enter return date(yyyy mm dd)");
+				LocalDate second_date=LocalDate.of(k.nextInt(), k.nextInt(), k.nextInt());
+				Returnbooks rb=new Returnbooks();
+				rb.find(first_date, second_date);
+			}
+		else
+		{
+			System.out.println("Invalid option");
+		}
+		}
+		
+ USER DETAILS CODE
+    public class User {
+String name;
+String email;
+String mobilenumber;
+public User(String name,String email,String mobilenumber)
+{
+    this.name=name;
+    this.email=email;
+    this.mobilenumber=mobilenumber;
+}
+public String getName() {
+    return name;
+}
+public void setName(String name) {
+    this.name = name;
+}
+public String getEmail() {
+    return email;
+}
+public void setEmail(String email) {
+    this.email = email;
+}
+public String getMobilenumber() {
+    return mobilenumber;
+}
+public void setMobilenumber(String mobilenumber) {
+    this.mobilenumber = mobilenumber;
+}
+public void display()
+{
+    System.out.println("Name:"+getName());
+    System.out.println("Email:"+getEmail());
+    System.out.println("MobileNumber:"+getMobilenumber());
+   
+}
+}
+ BILL CODE:
+ import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+public class Bill {
+    public  void display() {
+    int min=1;
+    int max=100;
+    int m=(int)Math.floor(Math.random()*(max-min+1)+min);
+    System.out.println("Bill number is: "+m);
+    DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY");
+    Calendar cal = Calendar.getInstance();
+    System.out.println("Date of issue : " + dateFormat.format(cal.getTime()));
+    System.out.println("Please return the book with in 15 days of purchase");
+    System.out.println("Thank you for choosing the book");
+
+ 
+
+}
+}
+RETURN BOOKS CODE
+import java.time.*;
+import java.util.*;
+public class Returnbooks{
+	public void find(LocalDate first_date,LocalDate second_date)
+	{
+		Period difference=Period.between(first_date, second_date);
+		System.out.println("Difference between two dates is:"+difference.getDays());
+		if(difference.getDays()<15)
+		{
+			System.out.println("You dont need to pay fine since you returned book within 15 days");
+			System.out.println("Thank you for returning the book");
+		}
+		else
+		{
+			int f=difference.getDays()-15;
+			Double fine=f*2.0;
+			System.out.printf("You have to pay Rs.%.2f",fine);
+			System.out.printf(".Since you returned the book after "+f+" days of the return time");
+			System.out.println("Thank you for paying and returning the book");
+			
+		}
+		
+	}
+}
